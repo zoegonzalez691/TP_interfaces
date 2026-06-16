@@ -1,0 +1,22 @@
+#contenedor{
+    display: flex;
+    justify-content: center;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+.formulario input{
+    width: 740px;
+    height: 81px;
+}
+.formulario textarea{
+    height: 397px;
+}
+
+.btnEnviar{
+    width: 257px;
+    height: 51px;
+    align-self: center;
+}
