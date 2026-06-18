@@ -108,30 +108,20 @@ textarea, select {
     font-family: 'Raleway';
 }
 
-.btnEnviar {
-    width: 257px;
-    height: 51px;
-    align-self: center;
-    border: 2px solid #2F1157;
-    border-radius: 30px;
-    background-color: white;
-    font-family: Buenard;
-    font-weight: bold;
-    font-size: 20px;
-    color: #2F1157;
+.input-container {
+  width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start;  
 }
 
-.btnEnviar:hover{
-    cursor: pointer;
-    background-color: #2F1157;
-    color: white;
-}
 
 .form-input {
   position: relative;
   width: 500px;
   margin-top: 25px;
-  margin-bottom: 25px auto;
+  margin-bottom: 25px;
 }
 
 .form-input input,
@@ -199,4 +189,50 @@ textarea, select {
   border-color: #8C6FB3;
   box-shadow: 0 0 8px 2px rgba(140, 111, 179, 0.6);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Boton de enviar */
+
+.btnEnviar:disabled {
+    background-color: #ccc;   
+    color: #666;
+    border: 2px solid #aaa;
+    cursor: not-allowed;
+}
+
+.btnEnviar {
+    width: 257px;
+    height: 51px;
+    align-self: center;
+    border: 2px solid #2F1157;
+    border-radius: 30px;
+    background-color: white;
+    font-family: Buenard;
+    font-weight: bold;
+    font-size: 20px;
+    color: #2F1157;
+    transition: all 0.3s ease; 
+    margin: auto;
+}
+
+.btnEnviar:hover:enabled {
+    cursor: pointer;
+    background-color: #2F1157;
+    color: white;
+}
+
+/* Errores del formulario */
+
+.error {
+  font-weight: bold;
+  color: #ba3434;
+  font-size: 14px;
+  margin-top: 4px;
+  min-height: 18px; 
+  display: block;   
+  visibility: hidden;
+}
+
+.error.activo {
+  visibility: visible;
 }
