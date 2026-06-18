@@ -79,7 +79,6 @@ menu {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     text-align: center;
     width: 100%;
 }
@@ -215,6 +214,7 @@ select {
     color: #2F1157;
     transition: all 0.3s ease;
     margin: auto;
+    margin-bottom: 40px;
 }
 
 .btnEnviar:hover:enabled {
