@@ -4,7 +4,9 @@
 const patronValidoMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 //Patron telefeno (10 numeros en total)
-const patronValidoTel =  /^[0-9]{10}$/;
+const patronValidoTel = /^[0-9]{10}$/;
+
+const formulario = document.querySelector(".formulario");
 
 //Input nombre
 let inputNombre = document.querySelector("#nombre");
@@ -14,15 +16,15 @@ let errorNombre = document.querySelector("#errorNombre");
 let inputMail = document.querySelector("#correo");
 let errorMail = document.querySelector("#errorMail");
 
-inputMail.addEventListener('input', (e) =>{
+inputMail.addEventListener('input', (e) => {
     let valor = inputMail.value.trim();
-    
+
     //Valida el valor ingresado con el patron establecido
     if (!patronValidoMail.test(valor)) {
         errorMail.textContent = 'Ingrese un formato valido (ej: usuario@dominio.com)';
-        errorMail.classList.add('activo'); 
+        errorMail.classList.add('activo');
 
-    
+
     } else {
         errorMail.textContent = '';
         errorMail.classList.remove('activo');
@@ -34,13 +36,13 @@ inputMail.addEventListener('input', (e) =>{
 let inputTelefono = document.querySelector("#telefono");
 let errorTelefono = document.querySelector("#errorTel");
 
-inputTelefono.addEventListener('input', (e) =>{
+inputTelefono.addEventListener('input', (e) => {
     let valor = inputTelefono.value.trim();
 
     if (!patronValidoTel.test(valor)) {
         errorTelefono.textContent = 'Solo se permiten números de 10 digitos';
-        errorTelefono.classList.add('activo'); 
-    
+        errorTelefono.classList.add('activo');
+
     } else {
         errorTelefono.textContent = '';
         errorTelefono.classList.remove('activo');
@@ -69,12 +71,12 @@ let btnEnviar = document.querySelector("#btnEnviar");
  * En caso de que quede vacio, maneja un mensaje de error.
  */
 
-function validarEntrada(divInput, divError){
+function validarEntrada(divInput, divError) {
     divInput.addEventListener('blur', () => {
         if (divInput.value.trim() === '') {
             divError.textContent = 'Este campo es obligatorio';
-            divError.classList.add('activo'); 
-    
+            divError.classList.add('activo');
+
         } else {
             divError.textContent = '';
             divError.classList.remove('activo');
@@ -96,7 +98,7 @@ function validarFormulario() {
 
     if (nombreValido && correoValido && telefonoValido && motivoValido && consultaValida) {
         btnEnviar.disabled = false;
-    
+
     } else {
         btnEnviar.disabled = true;
     }
@@ -114,9 +116,25 @@ validarEntrada(inputTelefono, errorTelefono);
 validarEntrada(inputSelect, errorSelect);
 validarEntrada(inputConsulta, errorConsulta);
 
-btnEnviar.addEventListener('submit', (e) =>{
 
+let respuestaForm = document.getElementById('respuestaForm');
+let loading = document.getElementById('loading');
+let mensajeEnviado = document.getElementById('mensajeEnviado');
+let btnCerrar = document.getElementById('btnCerrar');
 
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    
-})
+    respuestaForm.style.display = 'flex';
+    loading.style.display = 'block';
+    mensajeEnviado.style.display = 'none';
+
+    setTimeout(() => {
+        loading.style.display = 'none';
+        mensajeEnviado.style.display = 'block';
+    }, 2000);
+});
+
+btnCerrar.addEventListener('click', () => {
+    respuestaForm.style.display = 'none';
+});
