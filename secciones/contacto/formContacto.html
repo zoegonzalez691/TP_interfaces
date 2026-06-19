@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion Sueños</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="componentes.js"></script>
+</head>
+
+<body>
+
+    <site-header></site-header>
+
+    <form class="formulario">
+        <h2>¡Contactanos!</h2>
+        <p>Completa el siguiente formulario para que podamos ponernos en contacto</p>
+
+        <div class="input-container">
+            <div class="form-input">
+                <img src="public/img/iconos/user.png" alt="icono de persona">
+                <input type="text" id="nombre" placeholder="" required>
+                <label for="nombre">Nombre Completo</label>
+
+            </div>
+            <small class="error" id="errorNombre"></small>
+        </div>
+
+
+        <div class="input-container">
+            <div class="form-input">
+                <img src="public/img/iconos/mail.png" alt="icono de email">
+                <input type="email" id="correo" placeholder="" required>
+                <label for="correo">Correo Electronico</label>
+
+            </div>
+            <small class="error" id="errorMail"></small>
+        </div>
+
+        <div class="input-container">
+            <div class="form-input">
+                <img src="public/img/iconos/phone.png" alt="icono de telefono">
+                <input type="tel" id="telefono" placeholder="" required>
+                <label for="telefono">Numero Telefonico</label>
+                <small class="example">Ej: 2494011781 (codigo de area + numero)</small>
+
+            </div>
+            <small class="error" id="errorTel"></small>
+        </div>
+
+        <div class="input-container">
+            <div class="form-input">
+                <img src="public/img/iconos/lista.png" alt="icono lista">
+                <select id="motivo" placeholder="" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="consulta">Consulta por Tramites</option>
+                    <option value="soporte">Otro tipo</option>
+                </select>
+                <label for="motivo">Motivo de cosulta</label>
+
+            </div>
+            <small class="error" id="errorSelect"></small>
+        </div>
+
+        <div class="input-cointaner">
+            <div class="form-input">
+                <img src="public/img/iconos/comentario.png" alt="icono de comentario">
+                <textarea name="motivoConsulta" id="comentario" placeholder="" required></textarea>
+                <label for="comentario">Describa su consulta</label>
+            </div>
+            <small class="error" id="errorConsulta"></small>
+        </div>
+
+        <button type="submit" class="btnEnviar" id="btnEnviar" disabled>Enviar</button>
+
+    </form>
+
+    <div id="respuestaForm">
+        <div class="popup">
+            <button id="btnCerrar">×</button>
+            <div id="loading"></div>
+
+            <div id="mensajeEnviado">
+                <h3>¡Formulario Enviado!</h3>
+                <p>Pronto nos comunicaremos contigo.</p>
+            </div>
+        </div>
+    </div>
+
+    <site-footer></site-footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
