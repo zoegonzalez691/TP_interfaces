@@ -106,6 +106,7 @@ site-footer {
 
 #menu-container.desplegar {
     display: flex;
+    z-index: 10;
 }
 
 #menu-container li {
@@ -122,9 +123,13 @@ site-footer {
     width: 70%;
 }
 
-a{
+#menu-container a {
     text-decoration: none;
     color: white;
+}
+
+#menu-container a.activo {
+    text-decoration: underline;
 }
 
 

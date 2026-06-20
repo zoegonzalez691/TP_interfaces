@@ -17,8 +17,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    border-bottom: 1px solid rgb(227, 210, 236);
 }
 
 .nosotros-info-texto ul {
@@ -39,10 +37,15 @@
     color: #2F1157;
 }
 
+.contenido h3 {
+    color: #8350c5;
+}
+
 .contenido p {
     font-family: 'Amiko';
     font-size: 14px;
 }
+
 
 @media (min-width: 1024px) {
 
@@ -72,13 +75,13 @@
         white-space: nowrap;
     }
 
-    .contenido h2{
+    .contenido h2 {
         font-size: 32px;
         font-family: 'Raleway';
         color: #2F1157;
     }
 
-    .contenido h3{
+    .contenido h3 {
         font-size: 20px;
     }
 
@@ -87,6 +90,24 @@
         font-size: 18px;
     }
 
+    .divisor {
+        width: 60%;
+        height: 1px;
+        margin: 48px auto 0;
+        border: none;
+
+        background: linear-gradient(to right,
+                transparent,
+                rgb(207, 164, 230),
+                transparent);
+
+        opacity: 0;
+        transition: opacity 1.2s ease-in;
+    }
+
+    .divisor.visible {
+        opacity: 1;
+    }
 
 
 }

@@ -1,6 +1,8 @@
 // COMPONENTES
 class SiteHeader extends HTMLElement {
     connectedCallback() {
+        let pagina = location.pathname.split('/').pop();
+
         this.innerHTML =
                 `<header class="header">
                     <div class="logoContenedor"> 
@@ -16,10 +18,10 @@ class SiteHeader extends HTMLElement {
 
                     <nav class="menu">
                         <ul class="no-desplegar" id="menu-container">
-                            <li><a href="/index.html">Inicio</a></li>
-                            <li><a href="/secciones/quienesSomos/nosotros.html">¿Quienes Somos?</a></li>
+                            <li><a href="/index.html" class="${pagina === 'index.html' ? 'activo' : ''}">Inicio</a></li>
+                            <li><a href="/secciones/quienesSomos/nosotros.html" class="${pagina === 'nosotros.html' ? 'activo' : ''}">¿Quienes Somos?</a></li>
                             <li>Actividades</li>
-                            <li>Novedades</li>
+                            <li><a href="/secciones/novedades/novedades.html" class="${pagina === 'novedades.html' ? 'activo' : ''}">Novedades</a></li>
                             <li>Quiero Ayudar</li>
                             <li>Contacto</li>
                         </ul>
