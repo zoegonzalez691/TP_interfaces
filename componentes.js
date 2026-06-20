@@ -16,8 +16,8 @@ class SiteHeader extends HTMLElement {
 
                     <nav class="menu">
                         <ul class="no-desplegar" id="menu-container">
-                            <li>Inicio</li>
-                            <li>¿Quienes Somos?</li>
+                            <li><a href="/index.html">Inicio</a></li>
+                            <li><a href="/secciones/quienesSomos/nosotros.html">¿Quienes Somos?</a></li>
                             <li>Actividades</li>
                             <li>Novedades</li>
                             <li>Quiero Ayudar</li>
@@ -60,7 +60,6 @@ class SiteFooter extends HTMLElement{
     connectedCallback(){
         this.innerHTML = 
                 `<footer class="footer">
-
                     <div class="logoFooter"> 
                         <img src="/public/img/iconos/logo.png" alt="logoFooter">
                     </div>
