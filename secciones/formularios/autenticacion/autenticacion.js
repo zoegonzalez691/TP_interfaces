@@ -4,7 +4,7 @@ const user = {
 }
 
 /**
- * Ventana Modal para mostrar resultado del inicio de sesion
+ * Ventana Modal para mostrar resultado del inicio de sesion. Cuando se envia de forma exitosa se redirige al home
  */
 
 class ModalLogin extends HTMLElement {
@@ -22,7 +22,11 @@ class ModalLogin extends HTMLElement {
             </div>
         </div>
         `;
-        this.querySelector('#btnCerrar').addEventListener('click', () => this.remove());
+
+        this.querySelector('#btnCerrar').addEventListener('click', () => {
+            this.remove();
+            window.location.href = "../../../index.html"; // redirige al index
+        });
     }
 
     renderInputNegativo(dato) {
@@ -133,7 +137,7 @@ function mostrarResultado() {
 
     let modal = new ModalLogin();
     document.body.appendChild(modal);
-    
+
     if (inputMail.value.trim() === user.email && inputPassword.value.trim() === user.password) {
         modal.renderPositivo();
 

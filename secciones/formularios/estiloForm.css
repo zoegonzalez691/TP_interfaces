@@ -83,6 +83,15 @@
   color: #8350c5;
 }
 
+.example {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-family: 'Amiko';
+  color: #666;
+  text-align: left;
+}
+
 .error {
   display: none;
   margin-top: 6px;
@@ -126,7 +135,7 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(47, 17, 87, 0.3); /* fondo semitransparente */
+  background: rgba(47, 17, 87, 0.3); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +143,7 @@
 }
 
 .modal {
-  background-color: #d6a7f3; /* lavanda suave */
+  background-color: #d6a7f3;
   color: #2F1157;
   border-radius: 12px;
   padding: 40px 30px;

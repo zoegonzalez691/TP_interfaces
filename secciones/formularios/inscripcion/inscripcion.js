@@ -1,4 +1,5 @@
-class ModalContacto extends HTMLElement {
+
+class ModalInscripto extends HTMLElement {
     connectedCallback() {
         // Render inicial vacío
         this.innerHTML = '';
@@ -22,13 +23,16 @@ class ModalContacto extends HTMLElement {
 
 }
 
-customElements.define('modal-contacto', ModalContacto);
+customElements.define('modal-inscripto', ModalInscripto);
 
 //Patron de mail (usuario@gmail.com)
 const patronValidoMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 //Patron telefeno (10 numeros en total)
 const patronValidoTel = /^[0-9]{10}$/;
+
+//Patron de DNI
+const patronValidoDNI = /^[0-9]{7,8}$/;
 
 const formulario = document.querySelector("#contactoForm");
 
@@ -55,7 +59,6 @@ inputMail.addEventListener('input', (e) => {
     }
 });
 
-
 //Input de telefono
 let inputTelefono = document.querySelector("#telefono");
 let errorTelefono = document.querySelector("#errorTel");
@@ -74,14 +77,13 @@ inputTelefono.addEventListener('input', (e) => {
 
 });
 
+//Input DNI
+let inputDNI = document.querySelector("#dni");
+let errorDNI = document.querySelector("#errorDNI");
 
-//Select motivo de consulta
-let inputSelect = document.querySelector("#motivo");
-let errorSelect = document.querySelector("#errorSelect");
-
-//Input descripcion consulta
-let inputConsulta = document.querySelector("#comentario");
-let errorConsulta = document.querySelector("#errorConsulta");
+//Input fecha
+let inputFecha = document.querySelector("#fechaNacimiento");
+let errrorFecha = document.querySelector("#fecha");
 
 //Boton enviar
 let btnEnviar = document.querySelector("#btnEnviar");
@@ -113,14 +115,15 @@ function validarEntrada(divInput, divError) {
  * Validacion del formulario completo. Si algun campo del formulario
  * no es correcto, no permite que se active el boton para enviar el formulario
  */
+
 function validarFormulario() {
     let nombreValido = inputNombre.value.trim() !== '';
     let correoValido = patronValidoMail.test(inputMail.value.trim());
     let telefonoValido = patronValidoTel.test(inputTelefono.value.trim());
-    let motivoValido = inputSelect.value.trim() !== '';
-    let consultaValida = inputConsulta.value.trim() !== '';
+    let dniValido = patronValidoDNI.test(inputDNI.value.trim());
+    let fechaValida = inputFecha.value.trim() !== '';
 
-    if (nombreValido && correoValido && telefonoValido && motivoValido && consultaValida) {
+    if (nombreValido && correoValido && telefonoValido && dniValido && fechaValida) {
         btnEnviar.disabled = false;
 
     } else {
@@ -129,7 +132,7 @@ function validarFormulario() {
 }
 
 
-[inputNombre, inputMail, inputTelefono, inputSelect, inputConsulta].forEach(input => {
+[inputNombre, inputMail, inputTelefono, inputDNI, inputFecha].forEach(input => {
     input.addEventListener('input', validarFormulario);
     input.addEventListener('blur', validarFormulario);
 });
@@ -137,8 +140,8 @@ function validarFormulario() {
 validarEntrada(inputNombre, errorNombre);
 validarEntrada(inputMail, errorMail);
 validarEntrada(inputTelefono, errorTelefono);
-validarEntrada(inputSelect, errorSelect);
-validarEntrada(inputConsulta, errorConsulta);
+validarEntrada(inputDNI, errorDNI);
+validarEntrada(inputFecha, errrorFecha);
 
 let loaderContainer = document.getElementById('animacion-carga');
 
@@ -166,7 +169,7 @@ formulario.addEventListener('submit', (e) => {
     mostrarLoader();
 
     setTimeout((e) => {
-        let modal = new ModalContacto();
+        let modal = new ModalInscripto();
         contendor.appendChild(modal);
         modal.render();
 

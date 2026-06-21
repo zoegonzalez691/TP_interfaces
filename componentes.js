@@ -23,7 +23,7 @@ class SiteHeader extends HTMLElement {
                             <li>Actividades</li>
                             <li><a href="/secciones/novedades/novedades.html" class="${pagina === 'novedades.html' ? 'activo' : ''}">Novedades</a></li>
                             <li>Quiero Ayudar</li>
-                            <li>Contacto</li>
+                            <li><a href="/secciones/formularios/contacto/formContacto.html" class="${pagina === 'formContacto.html' ? 'activo' : ''}">Contacto</a></li>
                         </ul>
 
                         <button class="iconos" id="menu">
