@@ -9,9 +9,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 10px;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.form-base p{
+  font-family: 'Amiko';
+  text-align: center;
 }
 
 .form-base h1 {
@@ -24,11 +29,15 @@
 .form-input {
   position: relative;
   width: 100%;
-  margin-top: 1%;
   margin-top: 15%;
 }
 
+.form-input p{
+  font-family: 'Amiko';
+}
+
 .seccion-input {
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,11 +85,112 @@
 .form-input input:focus+label,
 .form-input input:not(:placeholder-shown)+label {
   top: -8px;
-  left: 12px;
+  left: 0px;
   font-size: 14px;
   background: transparent;
   padding: 0 6px;
   color: #8350c5;
+}
+
+.form-input select {
+  width: 100%;
+  height: auto;
+  padding: 16px 40px 16px 48px;
+  border: 1px solid #C9A8F0;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 14px;
+  font-family: 'Amiko';
+  color: #2F1157;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-input select:focus {
+  outline: none;
+  border-color: #8350c5;
+}
+
+.form-input select:focus+label,
+.form-input select:not(:invalid)+label {
+  top: -8px;
+  left: 0px;
+  font-size: 14px;
+  background: transparent;
+  padding: 0 6px;
+  color: #8350c5;
+}
+
+.form-input textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #C9A8F0;
+  border-radius: 10px;
+  background: white;
+  font-size: 14px;
+  font-family: 'Amiko';
+  color: #2F1157;
+  resize: vertical;
+}
+
+.form-input textarea:focus {
+  outline: none;
+  border-color: #8350c5;
+}
+
+.form-input:has(textarea) .icono {
+  top: 18px;
+  transform: none;
+}
+
+.form-input textarea+label {
+  top: 16px;
+  transform: none;
+}
+
+.form-input textarea:focus+label,
+.form-input textarea:not(:placeholder-shown)+label {
+  top: -18px;
+  left: 0px;
+  font-size: 14px;
+  background: transparent;
+  padding: 0 6px;
+  color: #8350c5;
+  transform: none;
+}
+
+.form-input:has(input[type="date"]) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.form-input:has(input[type="date"]) label {
+  position: static;
+  transform: none;
+  color: #2F1157;
+  font-size: 14px;
+}
+
+.form-input input[type="date"] {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #C9A8F0;
+  border-radius: 10px;
+  background: white;
+  font-size: 14px;
+  font-family: 'Amiko';
+  color: #2F1157;
+}
+
+.form-input input[type="date"]:focus {
+  outline: none;
+  border-color: #8350c5;
 }
 
 .example {
@@ -132,10 +242,11 @@
 
 .modal-container {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(47, 17, 87, 0.3); 
+  background: rgba(47, 17, 87, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,16 +293,34 @@
   color: white;
 }
 
-
 @media (min-width: 1024px) {
   .form-base {
-    width: 900px; 
+    width: 70%;
+    max-width: 1100px;
   }
 
   .form-input input {
-    height: 56px;  
+    width: 100%;
+    height: 56px;
     font-size: 16px;
-    padding: 20px 20px 20px 56px; 
+    padding: 20px 20px 20px 56px;
+  }
+
+  .form-input select {
+    height: auto;
+    font-size: 16px;
+    padding: 20px 40px 20px 56px;
+  }
+
+  .form-input textarea {
+    min-height: 180px;
+    font-size: 16px;
+    padding: 20px 20px 20px 56px;
+  }
+
+  .form-input input[type="date"] {
+    height: 56px;
+    font-size: 16px;
   }
 
   .btnEnviar {

@@ -81,6 +81,19 @@ inputTelefono.addEventListener('input', (e) => {
 let inputDNI = document.querySelector("#dni");
 let errorDNI = document.querySelector("#errorDNI");
 
+inputDNI.addEventListener('input', (e) => {
+    let valor = inputDNI.value.trim();
+
+    if (!patronValidoDNI.test(valor)) {
+        errorDNI.textContent = 'Solo se permiten números DNI';
+        errorDNI.classList.add('activo');
+
+    } else {
+        errorDNI.textContent = '';
+        errorDNI.classList.remove('activo');
+    }
+
+});
 //Input fecha
 let inputFecha = document.querySelector("#fechaNacimiento");
 let errrorFecha = document.querySelector("#fecha");
