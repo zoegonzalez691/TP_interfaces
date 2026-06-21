@@ -24,6 +24,8 @@ class SiteHeader extends HTMLElement {
                             <li><a href="/secciones/novedades/novedades.html" class="${pagina === 'novedades.html' ? 'activo' : ''}">Novedades</a></li>
                             <li><a href="/secciones/quieroAyudar/ayudar.html" class= "${pagina=== 'ayudar.html' ? 'activo' : ''}" > Quiero Ayudar </a></li>
                             <li><a href="/secciones/nuestroContacto/contacto.html" class="${pagina === 'contacto.html' ? 'activo' : ''}">Contacto </a></li>
+                            <li>Quiero Ayudar</li>
+                            <li><a href="/secciones/formularios/contacto/formContacto.html" class="${pagina === 'formContacto.html' ? 'activo' : ''}">Contacto</a></li>
                         </ul>
 
                         <button class="iconos" id="menu">

@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asociacion Sueños</title>
+    <title>Asocicacion Sueños</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-        
+
     <link rel="stylesheet" href="../../../global.css">
     <link rel="stylesheet" href="../estiloForm.css">
 
@@ -24,13 +24,13 @@
     <site-header></site-header>
 
     <div class="contenido">
-        
+
         <div id="animacion-carga"></div>
 
         <form class="form-base" id="contactoForm">
 
-            <h1>¡Contactanos!</h1>
-            <p>Completa el siguiente formulario para que podamos ponernos en contacto</p>
+            <h1>¡Anotate!</h1>
+            <p>Completa el siguiente formulario para que puedas compartir la actividad con nosotros</p>
 
             <div class="seccion-input">
                 <div class="form-input">
@@ -65,36 +65,36 @@
 
             <div class="seccion-input">
                 <div class="form-input">
-                    <img class="icono" src="../../../public/assets/iconos/lista.png" alt="icono lista">
-                    <select id="motivo" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="consulta">Consulta por Trámites</option>
-                        <option value="voluntariado">Quiero ser voluntario</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                    <label for="motivo">Motivo de consulta</label>
+                    <img class="icono" src="../../../public/assets/iconos/hastag.png" alt="icono de numeral">
+                    <input type="text" id="dni" placeholder=" " required>
+                    <label for="dni">Ingrese su DNI</label>
                 </div>
+                <small class="example">Ej: 47159785 (sin puntos)</small>
 
-                <small class="error" id="errorSelect"></small>
+                <small class="error" id="errorDNI"></small>
             </div>
 
             <div class="seccion-input">
                 <div class="form-input">
-                    <img class="icono" src="../../../public/assets/iconos/comentario.png" alt="icono de comentario">
-                    <textarea id="comentario" placeholder=" " required></textarea>
-                    <label for="comentario">Describa su consulta</label>
+                    <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
                 </div>
 
-                <small class="error" id="errorConsulta"></small>
+                <small class="error" id="fecha"></small>
             </div>
 
             <button type="submit" class="btnEnviar" id="btnEnviar" disabled>Enviar</button>
         </form>
     </div>
 
+    </div>
+
+
     <site-footer></site-footer>
 
-    <script src="script.js"></script>
+    <script src="inscripcion.js"></script>
+
+
 
 </body>
 
