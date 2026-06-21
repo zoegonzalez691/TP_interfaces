@@ -67,7 +67,7 @@ noticia-card {
 }
 
 .noticia-card p {
-    color: black;
+    color: rgb(137, 134, 134);
     font-family: 'Amiko';
 }
 
@@ -87,6 +87,10 @@ noticia-card {
     text-align: start;
     font-family: 'Amiko';
     color: #451c7b;
+}
+
+.noticia-card a{
+    text-decoration: none;
 }
 
 
@@ -140,7 +144,7 @@ noticia-card {
     -moz-appearance: none;
 }
 
-#filter{
+#filter {
     grid-area: busqueda;
 
     display: flex;
@@ -156,22 +160,12 @@ noticia-card {
 }
 
 .not-found {
-    grid-column: 1 / -1;     
+    grid-column: 1 / -1;
     text-align: center;
     color: #736868;
     font-family: 'Amiko';
     font-size: 18px;
     padding: 64px 0;
-}
-
-
-/*Animacion*/
-
-#animacion-carga {
-  width: 150px;
-  height: 150px;
-  margin: 50px auto;
-  display: none; 
 }
 
 @media (min-width: 1024px) {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion Sueños</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../global.css">
+    <link rel="stylesheet" href="../estiloForm.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <script src="../../../componentes.js"></script>
+</head>
+
+<body>
+
+    <site-header></site-header>
+
+    <div class="contenido">
+
+        <div id="animacion-carga"></div>
+
+        <form class="form-base form-login" id="login">
+
+            <h1>Iniciar Sesión</h1>
+
+            <section class="seccion-input">
+                <div class="form-input">
+                    <img class="icono" src="../../../public/assets/iconos/mail.png" alt="icono correo">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Ingrese su correo electrónico</label>
+                </div>
+
+                <small id="errorMail" class="error"></small>
+
+                <div class="form-input">
+                    <img class="icono" src="../../../public/assets/iconos/candado.png" alt="icono candado">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Ingrese su contraseña</label>
+                </div>
+
+                <small id="errorPass" class="error"></small>
+            </section>
+
+            <button type="submit" class="btnEnviar" disabled>Iniciar Sesión</button>
+
+        </form>
+    </div>
+
+
+    <site-footer></site-footer>
+
+    <script src="autenticacion.js"></script>
+</body>
+
+</html>

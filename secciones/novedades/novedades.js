@@ -5,12 +5,12 @@ let noticias = [];
  * que se va agregando al DOM del HTML.
  */
 class NoticiaCard extends HTMLElement {
-    setdata(noticia) {
+    setData(noticia) {
         this._data = noticia;
         this.render();
     }
 
-    getdata() {
+    getData() {
         return this._data;
     }
 
@@ -27,7 +27,7 @@ class NoticiaCard extends HTMLElement {
                 <div class="noticia-info">
                     <h3>${titulo}</h3>
                     <p>${breveDescripcion}</p>
-                    <button class="ver-mas" data-id="${id}">Ver más</button>
+                    <a class="ver-mas" href="../noticia-id/noticia-id.html?id=${id}">Ver más</a>
                 </div>
             </article>
         `;
@@ -58,7 +58,7 @@ function generarNoticias(noticias) {
     noticias.forEach(noticia => {
         let nueva = new NoticiaCard;
 
-        nueva.setdata(noticia);
+        nueva.setData(noticia);
 
         contenedor.appendChild(nueva);
     });
