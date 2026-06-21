@@ -7,7 +7,7 @@ class SiteHeader extends HTMLElement {
                 `<header class="header">
                     <div class="logoContenedor"> 
                         <div class="imgLogo">
-                            <img src="/public/img/iconos/logo.png" alt="Logo">
+                            <img src="/public/assets/iconos/logo.png" alt="Logo">
                         </div>
 
                         <div class="textoLogo">
@@ -27,7 +27,7 @@ class SiteHeader extends HTMLElement {
                         </ul>
 
                         <button class="iconos" id="menu">
-                            <img src="/public/img/iconos/menu-hamburguesa.png" alt="menu de hamburguesa">
+                            <img src="/public/assets/iconos/menu-hamburguesa.png" alt="menu de hamburguesa">
                         </button>
                      </nav>
                 </header>`;
@@ -63,15 +63,15 @@ class SiteFooter extends HTMLElement{
         this.innerHTML = 
                 `<footer class="footer">
                     <div class="logoFooter"> 
-                        <img src="/public/img/iconos/logo.png" alt="logoFooter">
+                        <img src="/public/assets/iconos/logo.png" alt="logoFooter">
                     </div>
 
                     <p><a href="">Necesito Ayuda</a></p>
 
                     <div class="iconos">
-                        <img src="/public/img/iconos/instagram.png" alt="icono instagram">
-                        <img src="/public/img/iconos/mail.png" alt="icono email">
-                        <img src="/public/img/iconos/facebook.png" alt="icono facebook">
+                        <img src="/public/assets/iconos/instagram.png" alt="icono instagram">
+                        <img src="/public/assets/iconos/mail.png" alt="icono email">
+                        <img src="/public/assets/iconos/facebook.png" alt="icono facebook">
                     </div>
                 </footer>`
     }

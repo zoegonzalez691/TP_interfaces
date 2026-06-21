@@ -1,3 +1,5 @@
+let noticias = [];
+
 /**
  * Genero componentes para las noticias. Con cada noticia se genera una nueva instancia del objeto
  * que se va agregando al DOM del HTML.
@@ -44,7 +46,15 @@ let contenedor = document.querySelector("#noticias-container");
  * Recorro todas las noticias, genero una nueva card por cada una y la agrego al DOM dentro del contenedor
  * que le estableci
  */
-function generarNoticias(noticias){
+
+function generarNoticias(noticias) {
+    contenedor.innerHTML = "";
+
+    if (noticias.length === 0) {
+        contenedor.innerHTML = `<p class="not-found">No se encontraron resultados para su búsqueda</p>`;
+        return;
+    }
+
     noticias.forEach(noticia => {
         let nueva = new NoticiaCard;
 
@@ -54,18 +64,71 @@ function generarNoticias(noticias){
     });
 }
 
+let loaderContainer = document.getElementById('animacion-carga');
+
+let animation = lottie.loadAnimation({
+  container: loaderContainer,
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '/public/assets/animacion/loading.json' 
+});
+
+function mostrarLoader() {
+  loaderContainer.style.display = 'block';
+}
+
+function ocultarLoader() {
+  loaderContainer.style.display = 'none';
+}
+
 
 //Establecer la conexion con la API
 async function cargarNoticias() {
     try {
+        mostrarLoader();
+
         const respuesta = await fetch('https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/noticias');
-        const noticias = await respuesta.json();
+        let noticiasActuales = await respuesta.json();
+
+        noticiasActuales.sort((a, b) => b.fecha - a.fecha);
+        noticias = noticiasActuales;
 
         generarNoticias(noticias);
-        
+
     } catch (error) {
         console.error('Algo falló:', error);
+    
+    } finally {
+        ocultarLoader(); 
     }
 }
 
 cargarNoticias();
+
+//Filtrado de noticias
+
+let busquedaNombre = document.querySelector("#busqueda");
+let filtro = document.querySelector("#filtros");
+
+/**
+ * Evaluo que las noticias cumplan con los filtros establecidos antes de mostrarla
+ */
+
+function filtrarNoticias() {
+    let textoBusqueda = busquedaNombre.value.trim().toLowerCase();
+    let filtroSeleccionado = filtro.value;
+
+    let coincidencias = noticias.filter((noticia) => {
+
+        let coincideTitulo = noticia.titulo.toLowerCase().includes(textoBusqueda);
+        let coincideRelevancia = filtroSeleccionado === 'Relevancia' ? noticia.esDestacada : true;
+
+        return coincideTitulo && coincideRelevancia;
+    });
+
+    generarNoticias(coincidencias);
+}
+
+busquedaNombre.addEventListener('input', filtrarNoticias);
+filtro.addEventListener('change', filtrarNoticias);
