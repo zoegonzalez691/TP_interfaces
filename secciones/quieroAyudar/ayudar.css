@@ -1,0 +1,36 @@
+.contPadre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 18%;
+}
+.contPadre p{
+    font-family: Raleway;
+    font-size: 40px;
+    color: #2F1157;
+}
+
+/*Mobile First*/
+.btn-ayudar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20%;
+   
+}
+
+.btn-ayudar button{
+    width: 50%;
+    height: 250%; 
+    font-family: Amiko;
+    color: #2F1157;
+    border-radius: 30px;
+    border: solid 1px #2F1157;
+    background-color: #FDFCFB;
+    
+}
+
+.btn-ayudar button a{
+    text-decoration: none;
+    color: #2F1157;
+}

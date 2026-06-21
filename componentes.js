@@ -20,10 +20,10 @@ class SiteHeader extends HTMLElement {
                         <ul class="no-desplegar" id="menu-container">
                             <li><a href="/index.html" class="${pagina === 'index.html' ? 'activo' : ''}">Inicio</a></li>
                             <li><a href="/secciones/quienesSomos/nosotros.html" class="${pagina === 'nosotros.html' ? 'activo' : ''}">¿Quienes Somos?</a></li>
-                            <li>Actividades</li>
+                            <li><a href="/secciones/nuestrasActividades/actividades.html" class="${pagina === 'actividades.html' ? 'activo' : ''}">Actividades</a></li>
                             <li><a href="/secciones/novedades/novedades.html" class="${pagina === 'novedades.html' ? 'activo' : ''}">Novedades</a></li>
-                            <li>Quiero Ayudar</li>
-                            <li>Contacto</li>
+                            <li><a href="/secciones/quieroAyudar/ayudar.html" class= "${pagina=== 'ayudar.html' ? 'activo' : ''}" > Quiero Ayudar </a></li>
+                            <li><a href="/secciones/nuestroContacto/contacto.html" class="${pagina === 'contacto.html' ? 'activo' : ''}">Contacto </a></li>
                         </ul>
 
                         <button class="iconos" id="menu">
