@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="inicio.css">
 
     <script src="componentes.js"></script>
 </head>
@@ -21,12 +22,33 @@
 
     <!--Este div envuelve todo lo que hagas porque ya esta predefinido en el css global. Luego adentro editas lo que quieras-->
     <div class="contenido">
+        <div class="carrusel">
+            <h2>Ultimas noticias</h2>
+            <button id="anterior">❮</button>
+            <div id="carruselNoticias"></div>
+            <button id="siguiente">❯</button>
+           
+        </div>
 
+        <div class="sobreNosotros">
+            <div class="texto">
+                <h2>Sobre Nosotros</h2><br>
+                <p>Somos una Asociacion Civil que tiene <br>
+                    el objetivo de acompañar a familias <br>
+                    que necesitan orientacion en cuanto <br>
+                    a la discapacidad, tambien nos enfocamos <br>
+                    en compartir informacion sobre las diferentes <br>
+                    discapacidades que existen y realizar diferentes <br>
+                    para personas con discapacidad.
+                </p>
+            </div>
+            <div class="imgIntegrantes"> <img src="images/integrantes.jpeg" alt="Integrantes Asociacion Sueños"></div>
+        </div>
 
     </div>
 
     <site-footer></site-footer>
-
+     <script src="inicio.js"></script>
 </body>
 
 </html>
