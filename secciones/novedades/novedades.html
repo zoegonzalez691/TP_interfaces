@@ -25,19 +25,28 @@
 
     <div class="contenido">
 
-        <div id="filter">
+        <div id="contenedor-superior">
+            <div id="filter">
 
-            <div class="campo-busqueda">
-                <label for="busqueda" class="sr-only">Inserte un título</label>
-                <img src="../../public/assets/iconos/busqueda.png" alt="" class="icono-buscar">
-                <input type="text" id="busqueda" placeholder="buscar titulo">
+                <div class="campo-busqueda">
+                    <label for="busqueda" class="sr-only">Inserte un título</label>
+                    <img src="../../public/assets/iconos/busqueda.png" alt="icono buscar" class="icono-buscar">
+                    <input type="text" id="busqueda" placeholder="buscar titulo">
+                </div>
+
+                <label for="filtros" class="sr-only">Filtros</label>
+                <select id="filtros">
+                    <option value="">Filtro</option>
+                    <option value="relevancia">Relevancia</option>
+                </select>
+
             </div>
 
-            <label for="filtros" class="sr-only">Filtros</label>
-            <select id="filtros">
-                <option value="">Filtro</option>
-                <option value="relevancia">Relevancia</option>
-            </select>
+            <script>
+                if (localStorage.getItem('isLoggedIn') === 'true') {
+                    document.write('<button class="btn" id="agregar"><img src="../../public/assets/iconos/agregar.png" alt="icono agregar" class="icono"></button>');
+                }
+            </script>
 
         </div>
 

@@ -19,6 +19,7 @@ class NoticiaCard extends HTMLElement {
         if (!this._data) return;
 
         let { titulo, breveDescripcion, img, esDestacada, fecha, id } = this._data;
+        const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
         this.innerHTML = `
             <article class="noticia-card ${esDestacada ? 'destacada' : ''}">
@@ -30,6 +31,19 @@ class NoticiaCard extends HTMLElement {
                     <a class="ver-mas" href="../noticia-id/noticia-id.html?id=${id}">Ver más</a>
                 </div>
             </article>
+
+            ${loggedIn ? `
+                    <div class="admin-controls">
+                        <button class="btn-edicion" data-id="${id}">
+                            <img src="../../public/assets/iconos/editar.png" alt="icono editar">
+                        </button>
+                        
+                        <button class="btn-edicion" data-id="${id}">
+                            <img src="../../public/assets/iconos/delete.png" alt="icono eliminar">
+                        </button>
+                    </div>
+                    ` : ''
+            }
         `;
     }
 }
