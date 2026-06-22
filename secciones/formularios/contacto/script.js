@@ -9,7 +9,7 @@ class ModalContacto extends HTMLElement {
         <div class="modal-container">
             <div class="modal">
             <h2>¡Formulario enviado correctamente!</h2>
-            <button id="btnCerrar">Cerrar</button>
+            <button class="btnModal">Cerrar</button>
             </div>
         </div>
         `;

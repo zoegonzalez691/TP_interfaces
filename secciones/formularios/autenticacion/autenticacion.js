@@ -18,12 +18,12 @@ class ModalLogin extends HTMLElement {
         <div class="modal-container">
             <div class="modal">
             <h2>¡Bienvenido!</h2>
-            <button id="btnCerrar">Cerrar</button>
+            <button class="btnModal">Cerrar</button>
             </div>
         </div>
         `;
 
-        this.querySelector('#btnCerrar').addEventListener('click', () => {
+        this.querySelector('.btnCerrar').addEventListener('click', () => {
             this.remove();
             window.location.href = "../../../index.html"; // redirige al index
         });
@@ -35,7 +35,7 @@ class ModalLogin extends HTMLElement {
             <div class="modal">
             <h2>${dato} incorrecto</h2>
             <p>Intente nuevamente</p>
-            <button id="btnCerrar">Cerrar</button>
+            <button class="btnModal">Cerrar</button>
             </div>
         </div>
         `;
@@ -48,7 +48,7 @@ class ModalLogin extends HTMLElement {
             <div class="modal">
             <h2>Email y contraseña incorrectas</h2>
             <p>Intente nuevamente</p>
-            <button id="btnCerrar">Cerrar</button>
+            <button class="btnModal">Cerrar</button>
             </div>
         </div>
         `;

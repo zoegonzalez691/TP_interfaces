@@ -1,5 +1,9 @@
 let noticias = [];
 
+const API_URL = 'https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/noticias'
+
+// Componente y renderizado de noticias
+
 /**
  * Genero componentes para las noticias. Con cada noticia se genera una nueva instancia del objeto
  * que se va agregando al DOM del HTML.
@@ -34,23 +38,29 @@ class NoticiaCard extends HTMLElement {
 
             ${loggedIn ? `
                     <div class="admin-controls">
-                        <button class="btn-edicion" data-id="${id}">
+                        <button class="btn-edicion editar" data-id="${id}">
                             <img src="../../public/assets/iconos/editar.png" alt="icono editar">
                         </button>
                         
-                        <button class="btn-edicion" data-id="${id}">
+                        <button class="btn-edicion eliminar">
                             <img src="../../public/assets/iconos/delete.png" alt="icono eliminar">
                         </button>
                     </div>
                     ` : ''
             }
         `;
+
+        let btnEliminar = this.querySelector(".btn-edicion.eliminar");
+        if (btnEliminar) {
+            btnEliminar.addEventListener('click', () => {
+                mostrarModal(id);
+            });
+        }
     }
 }
 
 //Forma de relacionar el componente con el tag html correspondiente
 customElements.define('noticia-card', NoticiaCard);
-
 
 let contenedor = document.querySelector("#noticias-container");
 
@@ -81,19 +91,19 @@ function generarNoticias(noticias) {
 let loaderContainer = document.getElementById('animacion-carga');
 
 let animation = lottie.loadAnimation({
-  container: loaderContainer,
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: '/public/assets/animacion/loading.json' 
+    container: loaderContainer,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/public/assets/animacion/loading.json'
 });
 
 function mostrarLoader() {
-  loaderContainer.style.display = 'block';
+    loaderContainer.style.display = 'block';
 }
 
 function ocultarLoader() {
-  loaderContainer.style.display = 'none';
+    loaderContainer.style.display = 'none';
 }
 
 
@@ -102,7 +112,7 @@ async function cargarNoticias() {
     try {
         mostrarLoader();
 
-        const respuesta = await fetch('https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/noticias');
+        const respuesta = await fetch(API_URL);
         let noticiasActuales = await respuesta.json();
 
         noticiasActuales.sort((a, b) => b.fecha - a.fecha);
@@ -112,9 +122,9 @@ async function cargarNoticias() {
 
     } catch (error) {
         console.error('Algo falló:', error);
-    
+
     } finally {
-        ocultarLoader(); 
+        ocultarLoader();
     }
 }
 
@@ -136,7 +146,7 @@ function filtrarNoticias() {
     let coincidencias = noticias.filter((noticia) => {
 
         let coincideTitulo = noticia.titulo.toLowerCase().includes(textoBusqueda);
-        let coincideRelevancia = filtroSeleccionado === 'Relevancia' ? noticia.esDestacada : true;
+        let coincideRelevancia = filtroSeleccionado === 'relevancia' ? noticia.esDestacada : true;
 
         return coincideTitulo && coincideRelevancia;
     });
@@ -146,3 +156,117 @@ function filtrarNoticias() {
 
 busquedaNombre.addEventListener('input', filtrarNoticias);
 filtro.addEventListener('change', filtrarNoticias);
+
+
+//Administracion de noticias (eliminar una noticia) 
+
+let contenedorGeneral = document.querySelector(".contenido");
+
+async function eliminarNoticia(noticia) {
+    try {
+        mostrarLoader();
+
+        const response = await fetch(`${API_URL}/${noticia}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        let modal = new ModalEliminar();
+        contenedorGeneral.appendChild(modal);
+
+
+        if (response.ok) {
+            modal.renderFinalizacion();
+
+        } else {
+            modal.renderError();
+        }
+
+
+    } catch (error) {
+
+    } finally {
+        ocultarLoader();
+    }
+}
+
+//Componente modal. Tiene 3 tipos, primero pide confirmacion, luego si se elimina exitosamente lo muestra sino muestra
+//que surgio un error
+class ModalEliminar extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = '';
+    }
+
+    setId(id) {
+        this._id = id; // guardamos el id de la noticia que activo el modal
+    }
+
+    renderFinalizacion() {
+        this.innerHTML = `
+            <div class="modal-container">
+                <div class="modal">
+                <h2>Noticia eliminada exitosamenre</h2>
+                <button class="btnModal" id="cerrar">Cerrar</button>
+                </div>
+            </div>
+            `;
+        this.querySelector("#cerrar").addEventListener('click', (e) => {
+            this.remove();
+            cargarNoticias();
+        })
+    }
+
+    renderConfirmacion() {
+        this.innerHTML = `
+            <div class="modal-container">
+                <div class="modal">
+                <p>¿Desea eliminar esta noticia?</p>
+                <button class="btnModal" id="confirmarDelete">Eliminar</button>
+                <button class="btnModal" id="cancelarDelete">Cancelar</button>
+                </div>
+            </div>
+            `;
+
+        this.querySelector('#confirmarDelete').addEventListener('click', () => {
+            this.remove();
+            eliminarNoticia(this._id);
+        });
+
+        this.querySelector('#cancelarDelete').addEventListener('click', () => {
+            this.remove();
+        });
+    }
+
+    renderError() {
+        this.innerHTML = `
+            <div class="modal-container">
+                <div class="modal">
+                <h2>No fue posible eliminar la noticia</h2>
+                <button class="btnModal" id="cerrar">Cerrar</button>
+                </div>
+            </div>
+            `;
+        this.querySelector("#cerrar").addEventListener('click', (e) => {
+            this.remove();
+            cargarNoticias();
+        })
+    }
+}
+
+customElements.define('modal-eliminar', ModalEliminar);
+
+function mostrarModal(id) {
+
+    mostrarLoader();
+
+    let modal = new ModalEliminar();
+    modal.setId(id);
+    contenedorGeneral.appendChild(modal);
+
+    modal.renderConfirmacion();
+
+    ocultarLoader();
+}
+
