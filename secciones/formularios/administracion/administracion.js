@@ -171,7 +171,7 @@ class FormularioBase extends HTMLElement {
 
                 <div class="seccion-input">
                     <label for="imagen">Imagen</label>
-                    <input type="file" id="imagen" accept="image/*" required>
+                    <input type="file" id="imagen" accept="image/*" ${this._data && this._data.img ? "" : "required"}>
                     <img id="preview" alt="Vista previa" class="preview-img" src="${this._data ? this._data.img : ''}">
 
                     <small class="error" id="errorImg"></small>

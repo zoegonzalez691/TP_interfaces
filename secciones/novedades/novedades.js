@@ -38,9 +38,9 @@ class NoticiaCard extends HTMLElement {
 
             ${loggedIn ? `
                     <div class="admin-controls">
-                        <button class="btn-edicion editar" data-id="${id}">
+                        <a href="../formularios/administracion/adminNot.html?id=${id}" class="btn-edicion editar">
                             <img src="../../public/assets/iconos/editar.png" alt="icono editar">
-                        </button>
+                        </a>
                         
                         <button class="btn-edicion eliminar">
                             <img src="../../public/assets/iconos/delete.png" alt="icono eliminar">
