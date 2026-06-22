@@ -1,0 +1,51 @@
+#actividades{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #FDFCFB;
+    padding: 20px;
+    gap: 20px;
+}
+
+.text_card{
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    width: 250%;
+    height: 200%;
+}
+
+
+.card h3{
+    font-family: Raleway;
+    color: #2F1157;
+
+   
+}
+
+
+.card p{
+    font-family: Amiko;
+    
+}
+
+.card a{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #FDFCFB;
+    color: #2F1157;
+    text-decoration: none;
+    border: solid 1px #2F1157;
+    border-radius: 20px;
+}

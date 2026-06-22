@@ -1,0 +1,205 @@
+.contenido{
+    height: auto;
+}
+
+
+/*Mobile First*/
+
+.sobreNosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin: 10%;
+}
+
+.sobreNosotros h2{
+    font-family: Raleway;
+    font-size: 100%;
+    color: #2F1157;
+    margin: 0%;
+}
+
+.sobreNosotros p{
+    font-family: Amiko;
+    font-size: 90%;
+    margin-top: 5%;
+}
+
+.imgIntegrantes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgIntegrantes img{
+    margin: 5%;
+    width: 70%;
+    height: auto;
+
+}
+.contenido{
+    height: auto;
+}
+
+/* =========================
+   CARRUSEL DE NOTICIAS
+   ========================= */
+
+.carrusel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem auto;
+    flex-wrap: wrap;
+}
+
+.carrusel h2{
+    width: 100%;
+    text-align: center;
+    font-family: Raleway;
+    color: #2F1157;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#carruselNoticias{
+    width: 100%;
+    max-width: 500px;
+}
+
+.noticia-card{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+    text-align: center;
+}
+
+.noticia-card img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.noticia-card h3{
+    font-family: Raleway;
+    color: #2F1157;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.noticia-card p{
+    font-family: Amiko;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.noticia-card a{
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #2F1157;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.noticia-card a:hover{
+    background-color: #4b1f87;
+}
+
+#anterior,
+#siguiente{
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #2F1157;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#anterior:hover,
+#siguiente:hover{
+    background-color: #4b1f87;
+}
+
+/* =========================
+   SOBRE NOSOTROS
+   ========================= */
+
+.sobreNosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+}
+
+.texto{
+    text-align: center;
+}
+
+.sobreNosotros h2{
+    font-family: Raleway;
+    font-size: 2rem;
+    color: #2F1157;
+    margin: 0;
+}
+
+.sobreNosotros p{
+    font-family: Amiko;
+    font-size: 1rem;
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.imgIntegrantes{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.imgIntegrantes img{
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+@media (min-width: 1024px){
+
+    .sobreNosotros{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .texto{
+        text-align: left;
+        max-width: 500px;
+    }
+
+    .sobreNosotros h2{
+        font-size: 3rem;
+    }
+
+    .sobreNosotros p{
+        font-size: 1.2rem;
+    }
+
+    .imgIntegrantes img{
+        width: 500px;
+    }
+}
+
+
+

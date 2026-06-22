@@ -1,7 +1,41 @@
-//Link para pedir datos a la api. (Si los queres renderizar como estan las noticias.)
+"use strict"
 
-const URL_API = 'https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades';
+let contenedor = document.getElementById("actividades");
 
-//Para pedir un id en especifico seria ${URL_API}/id
+let actividades = [];
 
-//Revisa las noticias, capaz hay cosas que te sirven (clases para estilos y asi)
+async function cargarActividades() {
+
+    let respuesta = await fetch(
+        "https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades"
+    );
+
+    actividades = await respuesta.json();
+
+    mostrarActividades();
+}
+
+function mostrarActividades() {
+
+    contenedor.innerHTML = "";
+
+    actividades.forEach(act => {
+
+        contenedor.innerHTML += `
+            <div class="card">
+                <div class="text_card"
+                    <h3>${act.titulo}</h3>
+
+                    <p>${act.breveDescripcion}</p>
+
+                    <a href="actividad.html?id=${act.id}">Mas Informacion</a>
+                </div>
+                <div class="img_card">
+                    <img src="${act.img}" alt="${act.titulo}">
+                </div>
+            </div>
+        `;
+    });
+}
+
+cargarActividades();

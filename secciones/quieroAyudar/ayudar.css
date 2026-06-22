@@ -54,7 +54,7 @@
   transition: 0.6s;
 }
 
-/*💻 Para pantallas grandes (computadora)*/
+
 @media (min-width: 1024px) {
   .contenido {
     min-height: 90vh;
