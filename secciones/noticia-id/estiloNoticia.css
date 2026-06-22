@@ -18,7 +18,7 @@
 }
 
 .detalle-card .detalle-img {
-    width: 100%;
+    width: 90%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 16px;
@@ -49,7 +49,7 @@
     }
 
     .detalle-card .detalle-img {
-        width: auto;
+        width: 90%;
         height: auto;
         margin-bottom: 24px;
     }

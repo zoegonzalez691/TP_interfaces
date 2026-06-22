@@ -114,7 +114,9 @@ noticia-card {
     height: auto;
 }
 
-.btn {
+a.nuevo {
+    display: inline-block;
+    text-align: center;
     align-self: center;
     margin-top: 8px;
     padding: 5px 48px;
@@ -126,12 +128,14 @@ noticia-card {
     font-family: 'Amiko';
     font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.btn:hover {
+a.nuevo:hover {
     background-color: #8747db;
     transition: 0.6s;
 }
+
 
 .admin-controls {
     display: flex;
