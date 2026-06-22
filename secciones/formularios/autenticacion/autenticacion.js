@@ -132,6 +132,11 @@ function ocultarLoader() {
     loaderContainer.style.display = 'none';
 }
 
+function login() {
+    localStorage.setItem('isLoggedIn', 'true');
+    location.reload();
+}
+
 function mostrarResultado() {
     mostrarLoader();
 
@@ -139,6 +144,7 @@ function mostrarResultado() {
     document.body.appendChild(modal);
 
     if (inputMail.value.trim() === user.email && inputPassword.value.trim() === user.password) {
+        login();
         modal.renderPositivo();
 
     } else if (inputMail.value.trim() !== user.email && inputPassword.value.trim() === user.password) {

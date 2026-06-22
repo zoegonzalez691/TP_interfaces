@@ -1,36 +1,84 @@
-.contPadre{
-    display: flex;
-    flex-direction: column;
+.contenido {
+  width: 100%;
+  min-height: 70vh;
+  background-image: url(/public/assets/img/Grupo_daza.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contPadre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #8a8a8a62;
+}
+
+.contPadre p {
+  font-family: Raleway;
+  font-size: 32px;
+  color: #000000;
+  text-align: center;
+}
+
+.btn-ayudar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  margin-top: 8px;
+  padding: 12px 48px;
+  border: 1px solid #9167c7;
+  border-radius: 999px;
+  background: rgb(222, 200, 236);
+  color: #5e2ba2;
+  font-family: 'Amiko';
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-ayudar a {
+  text-decoration: none;
+  color: #2F1157;
+}
+
+.btn:hover {
+  background-color: #a16be8;
+  color: #ffffff;
+  transition: 0.6s;
+}
+
+/*💻 Para pantallas grandes (computadora)*/
+@media (min-width: 1024px) {
+  .contenido {
+    min-height: 90vh;
+    background-position: center;
+  }
+
+  .contPadre {
     align-items: center;
-    margin: 18%;
-}
-.contPadre p{
-    font-family: Raleway;
-    font-size: 40px;
-    color: #2F1157;
-}
+    justify-content: center;
+  }
 
-/*Mobile First*/
-.btn-ayudar{
-    display: flex;
+  .btn-ayudar {
     flex-direction: row;
-    width: 100%;
-    gap: 20%;
-   
-}
+    justify-content: center;
+    gap: 80px;
+    width: auto;
+  }
 
-.btn-ayudar button{
-    width: 50%;
-    height: 250%; 
-    font-family: Amiko;
-    color: #2F1157;
-    border-radius: 30px;
-    border: solid 1px #2F1157;
-    background-color: #FDFCFB;
-    
-}
+  .btn {
+    padding: 14px 64px;
+    font-size: 18px;
+  }
 
-.btn-ayudar button a{
-    text-decoration: none;
-    color: #2F1157;
+  .contPadre p {
+    font-size: 36px;
+  }
 }

@@ -47,6 +47,7 @@ site-footer {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+
     padding: 12px;
     padding-bottom: 0%;
     margin-left: 15%;
@@ -77,6 +78,7 @@ site-footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     background-color: #8C6FB3;
     padding: 8px 16px;
 }
@@ -85,28 +87,53 @@ site-footer {
     background: none;
     border: none;
     padding: 0;
+    cursor: pointer;
+}
+
+#menu.logo-hamburguesa {
+    transition: transform 0.3s ease;
+}
+
+.logo-hamburguesa:hover {
+    transform: scale(1.1);
 }
 
 #menu-container {
     list-style: none;
-    margin: 0;
+    margin: 1%;
     padding: 24px 32px;
-
     background-color: #C9A8F0;
-
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 30px;
+
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    width: 60%;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    visibility: hidden;
+}
+
+#menu-container.desplegar {
+    opacity: 1;
+    z-index: 10;
+    border: 1px solid #9167c7;
+    border-radius: 5px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(0);
+    visibility: visible;
+    animation: fadeIn 0.3s ease;
 }
 
 #menu-container.no-desplegar {
     display: none;
-}
-
-#menu-container.desplegar {
-    display: flex;
-    z-index: 10;
 }
 
 #menu-container li {
@@ -132,7 +159,6 @@ site-footer {
     text-decoration: underline;
 }
 
-
 .footer {
     display: flex;
     flex-direction: column;
@@ -140,6 +166,7 @@ site-footer {
     justify-content: center;
     width: 100%;
     min-height: 400px;
+
     padding: 32px 20px;
     gap: 10px;
     background-color: #D0B2F8;
@@ -176,7 +203,7 @@ site-footer {
     height: 32px;
 }
 
-.content-img{
+.content-img {
     width: 70%;
     height: auto;
 }
@@ -190,6 +217,79 @@ site-footer {
     margin: 50px auto;
     display: none;
 }
+
+/* Icono usuario logueado */
+
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.user-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    border: 2px solid #fff;
+    background-color: #ffffff;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.user-icon:hover {
+    transform: scale(1.1);
+}
+
+.dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+
+    background-color: #C9A8F0;
+    border: 1px solid #9167c7;
+    border-radius: 5px;
+    padding: 8px 12px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown.hidden {
+    display: none;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: 'Amiko';
+}
+
+.btn-logout:hover {
+    background-color: #6b29c1;
+    transition: 0.3s;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 @media (min-width: 1024px) {
 
@@ -210,9 +310,8 @@ site-footer {
         display: none;
     }
 
-    #menu-container.no-desplegar,
-    #menu-container.desplegar {
-        display: flex;
+    #menu-container {
+        display: flex !important;
         flex-direction: row;
         position: static;
         width: auto;
@@ -221,6 +320,9 @@ site-footer {
         background-color: transparent;
         padding: 0;
         gap: 30px;
+        opacity: 1;
+        transform: none;
+        visibility: visible;
     }
 
     #menu-container li {
@@ -251,6 +353,24 @@ site-footer {
         height: 50px;
         width: 50px;
     }
+
+    .user-menu {
+        margin-left: 40px;
+    }
+
+    .user-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .dropdown {
+        top: 60px;
+        padding: 12px 16px;
+    }
+
+    .btn-logout {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
 }
-
-
