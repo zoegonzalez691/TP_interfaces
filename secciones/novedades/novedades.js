@@ -192,8 +192,11 @@ async function eliminarNoticia(noticia) {
     }
 }
 
-//Componente modal. Tiene 3 tipos, primero pide confirmacion, luego si se elimina exitosamente lo muestra sino muestra
-//que surgio un error
+/**
+ * Componente Modal. Pide confirmacion antes de eliminar, y si se puede eliminar muestra el mensaje de exito, sino
+ * muestra mensaje de error
+ */
+
 class ModalEliminar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = '';

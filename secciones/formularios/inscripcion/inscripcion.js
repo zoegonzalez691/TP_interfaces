@@ -34,7 +34,7 @@ const patronValidoTel = /^[0-9]{10}$/;
 //Patron de DNI
 const patronValidoDNI = /^[0-9]{7,8}$/;
 
-const formulario = document.querySelector("#contactoForm");
+const formulario = document.querySelector("#inscripcionForm");
 
 //Input nombre
 let inputNombre = document.querySelector("#nombre");

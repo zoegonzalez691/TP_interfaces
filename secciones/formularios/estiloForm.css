@@ -14,7 +14,7 @@
   margin: 0 auto;
 }
 
-.form-base p{
+.form-base p {
   font-family: 'Amiko';
   text-align: center;
 }
@@ -32,7 +32,7 @@
   margin-top: 15%;
 }
 
-.form-input p{
+.form-input p {
   font-family: 'Amiko';
 }
 
@@ -240,58 +240,6 @@
   cursor: not-allowed;
 }
 
-.modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(47, 17, 87, 0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal {
-  background-color: #d6a7f3;
-  color: #2F1157;
-  border-radius: 12px;
-  padding: 40px 30px;
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.modal h2 {
-  font-family: 'Raleway';
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-.modal p {
-  font-family: 'Amiko';
-  font-size: 14px;
-  margin-bottom: 24px;
-}
-
-.modal button {
-  background-color: white;
-  color: #2F1157;
-  border: 2px solid #2F1157;
-  border-radius: 999px;
-  padding: 10px 24px;
-  font-family: 'Amiko';
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal button:hover {
-  background-color: #2F1157;
-  color: white;
-}
 
 @media (min-width: 1024px) {
   .form-base {
