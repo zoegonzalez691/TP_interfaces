@@ -47,6 +47,25 @@ class ModalFormulario extends HTMLElement {
 
     }
 
+    renderConfirmacionEliminar(id,callback){
+        this.innerHTML=` <div class="modal-container">
+            <div class="modal">
+                <p>¿Desea eliminar esta actividad?</p>
+
+                <button class="btnModal" id="aceptar">Eliminar</button>
+                <button class="btnModal" id="cancelar">Cancelar</button>
+            </div>
+        </div>`;
+
+        this.querySelector("#cancelar").addEventListener("click", () => {this.remove();
+        });
+
+        this.querySelector("#aceptar").addEventListener("click", ()=>{
+            callback(id);
+            this.remove();
+        });
+    }
+
     renderConfirmacionSave(form) {
         this.innerHTML = `
         <div class="modal-container">
@@ -285,16 +304,16 @@ class FormularioBase extends HTMLElement {
     confirmarFormulario() {
         let form = this.querySelector("#administracion");
 
-        let contenedor = document.querySelector(".contenido");
-        let modal = new ModalFormulario();
-        contenedor.appendChild(modal);
-
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            modal.renderConfirmacionSave(this);
-        });
-    }
+        let modal = new ModalFormulario();
+        document.body.appendChild(modal);
+
+        modal.renderConfirmacionSave(this);
+    });
+}
+    
 
     async procesarFormulario() {
         try {

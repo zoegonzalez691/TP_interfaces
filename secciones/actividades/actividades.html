@@ -11,19 +11,25 @@
     <link rel="stylesheet" href="../../global.css">
     <link rel="stylesheet" href="actividades.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
     <script src="../../componentes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+   
 </head>
 <body>
-    <site-header></site-header>
-     
-    <div class="contenido">
-        <h2>Actividades</h2>
+<site-header></site-header>
 
-       <div id="actividades"></div>
+<div class="contenido">
+    <div class="botonAgregar">
+    <button id="btn_agregar" data-tooltip="Agregar actividad"><img src="../../public/assets/iconos/agregar.png" alt="agregar"></button>
     </div>
+    <div id="actividades">
+    
+    </div>
+</div>
 
-    <site-footer></site-footer>
-    <script src="actividades.js"></script>
+<site-footer></site-footer>
+
+<script src="../formularios/administracion/administracion.js"></script>
+<script src="actividades.js"></script>
 </body>
 </html>

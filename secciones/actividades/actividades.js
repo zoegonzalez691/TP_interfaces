@@ -4,6 +4,9 @@ let contenedor = document.getElementById("actividades");
 
 let actividades = [];
 
+document.getElementById("btn_agregar").addEventListener("click", () => {
+    location.href = "../formularios/administracion/adminAct.html";}); 
+
 async function cargarActividades() {
 
     let respuesta = await fetch(
@@ -15,27 +18,101 @@ async function cargarActividades() {
     mostrarActividades();
 }
 
+function crearActividadCard(act) {
+
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let contenido = document.createElement("div");
+    contenido.classList.add("card-content");
+
+    contenido.innerHTML = `
+        <div class="text_card">
+            <h3>${act.titulo}</h3>
+            <p>${act.breveDescripcion}</p>
+            <a href="actividad.html?id=${act.id}">
+                Más Información
+            </a>
+        </div>
+
+        <div class="img_card">
+            <img src="${act.img}" alt="${act.titulo}">
+        </div>
+    `;
+
+    card.appendChild(contenido);
+
+    if (localStorage.getItem("isLoggedIn")) {
+
+        let btnContainer = document.createElement("div");
+        btnContainer.classList.add("btn");
+
+        let btnEdit = document.createElement("button");
+        btnEdit.classList.add("btn_edit");
+        btnEdit.dataset.id = act.id;
+        btnEdit.innerHTML = `<img src="../../public/assets/iconos/editar.png">`;
+
+        let btnElim = document.createElement("button");
+        btnElim.classList.add("btn_elim");
+        btnElim.dataset.id = act.id;
+        btnElim.innerHTML = `<img src="../../public/assets/iconos/delete.png">`;
+
+        btnContainer.appendChild(btnEdit);
+        btnContainer.appendChild(btnElim);
+
+        card.appendChild(btnContainer);
+    }
+
+    return card;
+}
 function mostrarActividades() {
-
     contenedor.innerHTML = "";
-
+    
     actividades.forEach(act => {
-
-        contenedor.innerHTML += `
-            <div class="card">
-                <div class="text_card"
-                    <h3>${act.titulo}</h3>
-
-                    <p>${act.breveDescripcion}</p>
-
-                    <a href="actividad.html?id=${act.id}">Mas Informacion</a>
-                </div>
-                <div class="img_card">
-                    <img src="${act.img}" alt="${act.titulo}">
-                </div>
-            </div>
-        `;
+        let card = crearActividadCard(act);
+        contenedor.appendChild(card);
     });
 }
 
+contenedor.addEventListener("click", (e) => {
+
+    if (e.target.closest(".btn_edit")) {
+        let id = e.target.closest(".btn_edit").dataset.id;
+        location.href =`../formularios/administracion/adminAct.html?id=${id}`;
+
+    }
+
+    if (e.target.closest(".btn_elim")) {
+        let id = e.target.closest(".btn_elim").dataset.id;
+        let modalViejo = document.querySelector("modal-formulario");
+        if (modalViejo) modalViejo.remove();
+
+        let modal = new ModalFormulario();
+        document.body.appendChild(modal);
+    
+        modal.renderConfirmacionEliminar(id, eliminarActividad);
+    }
+});
+
+
 cargarActividades();
+
+async function eliminarActividad(id) {
+    try {
+        let respuesta = await fetch(
+            `https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades/${id}`,
+            { method: "DELETE" }
+        );
+
+        if (respuesta.ok) {
+            cargarActividades(); 
+        } else {
+            console.log("Error al eliminar");
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+

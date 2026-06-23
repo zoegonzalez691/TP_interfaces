@@ -5,13 +5,17 @@
     padding: 20px;
 }
 
-
 .card{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
     background: #FDFCFB;
     padding: 20px;
+    gap: 15px;
+}
+
+.card-content{
+    display: flex;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -20,17 +24,17 @@
     flex-direction: column;
 }
 
-.card img{
-    width: 250%;
-    height: 200%;
+.img_card img{
+    width: 100%;
+    max-width: 500px;  
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
-
 
 .card h3{
     font-family: Raleway;
     color: #2F1157;
-
-   
 }
 
 
@@ -48,4 +52,65 @@
     text-decoration: none;
     border: solid 1px #2F1157;
     border-radius: 20px;
+}
+
+.btn{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn_edit, .btn_elim, #btn_agregar{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn_edit img, .btn_elim img {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+}
+
+.btn_edit:hover img, .btn_elim:hover img, #btn_agregar:hover img{
+    transform: scale(1.2);
+}
+
+.botonAgregar{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#btn_agregar{
+    position: relative;
+}
+
+#btn_agregar::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120%);;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: #2F1157;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+#btn_agregar:hover::after{
+    opacity: 1;
+}
+#btn_agregar img{
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
 }
