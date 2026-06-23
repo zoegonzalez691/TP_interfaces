@@ -74,6 +74,7 @@ function mostrarActividades() {
     });
 }
 
+
 contenedor.addEventListener("click", (e) => {
 
     if (e.target.closest(".btn_edit")) {
@@ -94,7 +95,6 @@ contenedor.addEventListener("click", (e) => {
     }
 });
 
-
 cargarActividades();
 
 async function eliminarActividad(id) {
@@ -114,5 +114,8 @@ async function eliminarActividad(id) {
         console.log(error);
     }
 }
+
+
+
 
 
