@@ -21,11 +21,11 @@ class ModalLogin extends HTMLElement {
             <button class="btnModal">Cerrar</button>
             </div>
         </div>
-        `;
+    `;
 
-        this.querySelector('.btnCerrar').addEventListener('click', () => {
+        this.querySelector('.btnModal').addEventListener('click', () => {
             this.remove();
-            window.location.href = "../../../index.html"; // redirige al index
+            window.location.href = "../../../index.html";
         });
     }
 
@@ -38,8 +38,8 @@ class ModalLogin extends HTMLElement {
             <button class="btnModal">Cerrar</button>
             </div>
         </div>
-        `;
-        this.querySelector('#btnCerrar').addEventListener('click', () => this.remove());
+    `;
+        this.querySelector('.btnModal').addEventListener('click', () => this.remove());
     }
 
     renderNegativo() {
@@ -51,8 +51,8 @@ class ModalLogin extends HTMLElement {
             <button class="btnModal">Cerrar</button>
             </div>
         </div>
-        `;
-        this.querySelector('#btnCerrar').addEventListener('click', () => this.remove());
+    `;
+        this.querySelector('.btnModal').addEventListener('click', () => this.remove());
     }
 }
 
@@ -134,7 +134,6 @@ function ocultarLoader() {
 
 function login() {
     localStorage.setItem('isLoggedIn', 'true');
-    location.reload();
 }
 
 function mostrarResultado() {
