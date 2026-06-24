@@ -1,3 +1,24 @@
+let params = new URLSearchParams(location.search);
+
+let idActividad = params.get("id");
+console.log(idActividad);
+
+let actividad = null;
+
+async function cargarActividad() {
+
+    document.querySelector("#tituloActividad").textContent =
+    actividad.titulo;
+    let respuesta = await fetch(
+        `https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades/${idActividad}`
+    );
+
+    actividad = await respuesta.json();
+
+    console.log(actividad);
+}
+
+cargarActividad();
 
 class ModalInscripto extends HTMLElement {
     connectedCallback() {
@@ -10,7 +31,7 @@ class ModalInscripto extends HTMLElement {
         <div class="modal-container">
             <div class="modal">
             <h2>¡Formulario enviado correctamente!</h2>
-            <button class="btnModal">Cerrar</button>
+            <button class="btnModal" id="btnCerrar">Cerrar</button>
             </div>
         </div>
         `;

@@ -9,6 +9,7 @@ document.getElementById("btn_agregar").addEventListener("click", () => {
 
 async function cargarActividades() {
 
+    contenedor.innerHTML = "<p>Cargando actividades...</p>";
     let respuesta = await fetch(
         "https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades"
     );
@@ -25,6 +26,12 @@ function crearActividadCard(act) {
 
     let contenido = document.createElement("div");
     contenido.classList.add("card-content");
+    let botonInscripcion = "";
+
+    if (act.requiereInscripcion) {
+        botonInscripcion = `<a class="btn-inscripcion" href="../formularios/inscripcion/inscripcion.html?id=${act.id}">
+        Inscribirme</a>`;
+}
 
     contenido.innerHTML = `
         <div class="text_card">
@@ -33,6 +40,8 @@ function crearActividadCard(act) {
             <a href="actividad.html?id=${act.id}">
                 Más Información
             </a>
+            ${botonInscripcion}
+            
         </div>
 
         <div class="img_card">
