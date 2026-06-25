@@ -50,7 +50,7 @@
 @media (min-width: 1024px) {
 
     .nosotros-info,
-    .nosotros-info-texto {
+    .nosotros-info-texto { 
         display: flex;
         flex-direction: row;
     }

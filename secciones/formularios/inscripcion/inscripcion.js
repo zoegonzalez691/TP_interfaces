@@ -7,8 +7,7 @@ let actividad = null;
 
 async function cargarActividad() {
 
-    document.querySelector("#tituloActividad").textContent =
-    actividad.titulo;
+   
     let respuesta = await fetch(
         `https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades/${idActividad}`
     );
@@ -16,6 +15,8 @@ async function cargarActividad() {
     actividad = await respuesta.json();
 
     console.log(actividad);
+     document.querySelector("#tituloActividad").textContent =
+    actividad.titulo;
 }
 
 cargarActividad();

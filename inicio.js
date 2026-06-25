@@ -9,7 +9,9 @@ async function cargarNoticias() {
         "https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/noticias"
     );
 
-    noticias = await respuesta.json();
+    noticias = (await respuesta.json()).filter(
+        noticia => noticia.esDestacada
+    );
 
     mostrarNoticia();
 }
@@ -28,7 +30,7 @@ function mostrarNoticia() {
             <img src="${noticia.img}" alt="${noticia.titulo}">
             <h3>${noticia.titulo}</h3>
             <p>${noticia.breveDescripcion}</p>
-            <a href="./pages/noticia-id/noticia-id.html?id=${noticia.id}">
+            <a href="./secciones/noticia-id/noticia-id.html?id=${noticia.id}">
                 Ver noticia
             </a>
         </article>

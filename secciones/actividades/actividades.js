@@ -1,11 +1,10 @@
 "use strict"
-
+let contenidoPrincipal = document.querySelector(".contenido");
 let contenedor = document.getElementById("actividades");
 
 let actividades = [];
 
-document.getElementById("btn_agregar").addEventListener("click", () => {
-    location.href = "../formularios/administracion/adminAct.html";}); 
+
 
 async function cargarActividades() {
 
@@ -15,12 +14,12 @@ async function cargarActividades() {
     );
 
     actividades = await respuesta.json();
-
+    mostrarBotonAgregar();
     mostrarActividades();
 }
 
 function crearActividadCard(act) {
-
+console.log(act)
     let card = document.createElement("div");
     card.classList.add("card");
 
@@ -29,15 +28,16 @@ function crearActividadCard(act) {
     let botonInscripcion = "";
 
     if (act.requiereInscripcion) {
-        botonInscripcion = `<a class="btn-inscripcion" href="../formularios/inscripcion/inscripcion.html?id=${act.id}">
+        botonInscripcion = `<a class="btn-inscripcion" href="../formularios/inscripcion/incripcion.html?id=${act.id}">
         Inscribirme</a>`;
 }
+console.log(botonInscripcion)
 
     contenido.innerHTML = `
         <div class="text_card">
             <h3>${act.titulo}</h3>
             <p>${act.breveDescripcion}</p>
-            <a href="actividad.html?id=${act.id}">
+            <a href="../actividadDetalle/actividad.html?id=${act.id}">
                 Más Información
             </a>
             ${botonInscripcion}
@@ -50,9 +50,9 @@ function crearActividadCard(act) {
     `;
 
     card.appendChild(contenido);
-
+ 
     if (localStorage.getItem("isLoggedIn")) {
-
+       
         let btnContainer = document.createElement("div");
         btnContainer.classList.add("btn");
 
@@ -66,13 +66,34 @@ function crearActividadCard(act) {
         btnElim.dataset.id = act.id;
         btnElim.innerHTML = `<img src="../../public/assets/iconos/delete.png">`;
 
+        
+
         btnContainer.appendChild(btnEdit);
         btnContainer.appendChild(btnElim);
-
         card.appendChild(btnContainer);
+
+        
+       
     }
 
     return card;
+}
+
+function mostrarBotonAgregar(){
+    if (localStorage.getItem("isLoggedIn")) {
+        let btnContainerAgregar= document.createElement("div");
+        btnContainerAgregar.classList.add("botonAgregar");
+
+        let btnAgregar= document.createElement("button");
+        btnAgregar.setAttribute("data-tooltip", "Agregar actividad");
+        btnAgregar.setAttribute("id", "btn_agregar");
+        btnAgregar.innerHTML= `<img src="../../public/assets/iconos/agregar.png"alt="agregar"></img>`;
+       
+        btnContainerAgregar.appendChild(btnAgregar);
+
+        contenidoPrincipal.prepend(btnContainerAgregar);
+}
+
 }
 function mostrarActividades() {
     contenedor.innerHTML = "";
@@ -123,6 +144,13 @@ async function eliminarActividad(id) {
         console.log(error);
     }
 }
+
+document.addEventListener("click", (e) => {
+      if (e.target.closest("#btn_agregar")) {
+        location.href = "../formularios/administracion/adminAct.html";
+    }
+
+});
 
 
 

@@ -6,7 +6,7 @@
 
 /*Mobile First*/
 
-.sobreNosotros{
+.sobreNosotros{ 
     display: flex;
     flex-direction: column;
     align-items: center;    
@@ -15,15 +15,20 @@
 
 .sobreNosotros h2{
     font-family: Raleway;
-    font-size: 100%;
+    font-size: 32px; 
     color: #2F1157;
-    margin: 0%;
+    margin: 0;
 }
 
 .sobreNosotros p{
     font-family: Amiko;
-    font-size: 90%;
-    margin-top: 5%;
+    font-size: 16px;
+    margin-top: 16px; 
+    line-height: 26px; 
+}
+
+.texto{
+    text-align: center;
 }
 
 .imgIntegrantes{
@@ -41,35 +46,24 @@
 .contenido{
     height: auto;
 }
-
-/* =========================
-   CARRUSEL DE NOTICIAS
-   ========================= */
-
 .carrusel{
+    position: relative;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 3rem auto;
-    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
+#carruselNoticias{
+    width: 100%;
+}
 .carrusel h2{
     width: 100%;
     text-align: center;
     font-family: Raleway;
     color: #2F1157;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 40px;
+    margin-bottom: 5px;
 }
-
-#carruselNoticias{
-    width: 100%;
-    max-width: 500px;
-}
-
 .noticia-card{
     background: white;
     border-radius: 15px;
@@ -80,27 +74,26 @@
 
 .noticia-card img{
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
 }
 
 .noticia-card h3{
     font-family: Raleway;
     color: #2F1157;
-    font-size: 1.5rem;
-    margin: 1rem;
+    font-size: 25px;
+    margin: 5px;
 }
 
 .noticia-card p{
     font-family: Amiko;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
 .noticia-card a{
     display: inline-block;
-    margin-bottom: 1.5rem;
-    padding: 0.8rem 1.5rem;
+    margin-bottom: px;
+    padding: 12.8px 20px;
     background-color: #2F1157;
     color: white;
     text-decoration: none;
@@ -114,15 +107,31 @@
 
 #anterior,
 #siguiente{
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+
     border: none;
     border-radius: 50%;
-    background-color: #2F1157;
+
+    background-color: rgba(47,17,87,0.85);
     color: white;
-    font-size: 1.3rem;
+
+    font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
+
+    z-index: 10;
+}
+
+#anterior{
+    left: 10px;
+}
+
+#siguiente{
+    right: 10px;
 }
 
 #anterior:hover,
@@ -130,47 +139,6 @@
     background-color: #4b1f87;
 }
 
-/* =========================
-   SOBRE NOSOTROS
-   ========================= */
-
-.sobreNosotros{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10%;
-}
-
-.texto{
-    text-align: center;
-}
-
-.sobreNosotros h2{
-    font-family: Raleway;
-    font-size: 2rem;
-    color: #2F1157;
-    margin: 0;
-}
-
-.sobreNosotros p{
-    font-family: Amiko;
-    font-size: 1rem;
-    margin-top: 1rem;
-    line-height: 1.6;
-}
-
-.imgIntegrantes{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.imgIntegrantes img{
-    width: 80%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 15px;
-}
 
 @media (min-width: 1024px){
 
@@ -178,7 +146,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 4rem;
+        gap: 64px; /* antes 4rem */
     }
 
     .texto{
@@ -187,17 +155,28 @@
     }
 
     .sobreNosotros h2{
-        font-size: 3rem;
+        font-size: 32px;
     }
 
     .sobreNosotros p{
-        font-size: 1.2rem;
+        font-size: 18px;
     }
 
     .imgIntegrantes img{
-        width: 500px;
+        width: 400px;
+    }
+    .noticia-card img{
+        height: 250px;
+    }
+
+    #anterior,
+    #siguiente{
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
     }
 }
+
 
 
 

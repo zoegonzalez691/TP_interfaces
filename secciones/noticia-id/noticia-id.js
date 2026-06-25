@@ -1,6 +1,6 @@
 import { ComponenteBase } from '../componenteBase.js';
 
-class ComponenteNoticia extends ComponenteBase {
+class ComponenteNoticia extends ComponenteBase { 
     //Si es una noticia destacada, muestro el dato.
     renderExtra() {
         let { esDestacada } = this._data;
