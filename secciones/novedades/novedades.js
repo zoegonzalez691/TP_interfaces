@@ -32,7 +32,7 @@ class NoticiaCard extends HTMLElement {
                 <div class="noticia-info">
                     <h3>${titulo}</h3>
                     <p>${breveDescripcion}</p>
-                    <a class="ver-mas" href="../noticia-id/noticia-id.html?id=${id}">Ver más</a>
+                    <a class="ver-mas" href="../noticia-id/noticia-id.html?id=${id}">Ver más →</a>
                 </div>
             </article>
 

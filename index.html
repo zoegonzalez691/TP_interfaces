@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="inicio.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
     <script src="componentes.js"></script>
 </head>
 
@@ -21,12 +22,18 @@
     <site-header></site-header>
 
     <div class="contenido">
+
+        <div id="animacion-carga"></div>
+
         <div class="carrusel">
             <h2>Ultimas noticias</h2>
-            <button id="anterior">❮</button>
+
             <div id="carruselNoticias"></div>
-            <button id="siguiente">❯</button>
-           
+
+            <button id="anterior" class="flecha">❮</button>
+
+            <button id="siguiente" class="flecha">❯</button>
+
         </div>
 
         <div class="sobreNosotros">
@@ -40,14 +47,30 @@
                     discapacidades que existen y realizar diferentes <br>
                     para personas con discapacidad.
                 </p>
+
+                <a href="secciones/quienesSomos/nosotros.html" class="ver-mas">Conocenos →</a>
             </div>
-            <div class="imgIntegrantes"> <img src="public/assets/img/integrantes.jpeg" alt="Integrantes Asociacion Sueños"></div>
+
+            <div class="imgIntegrantes">
+                <img src="public/assets/img/integrantes.jpeg" alt="Integrantes Asociacion Sueños">
+            </div>
+
         </div>
 
+        <div class="frase">
+            <p>
+                Trabajamos por la integración y el bienestar de personas con discapaciadad,
+                promoviendo su desarrollo, autonomía y participación en la sociedad
+            </p>
+
+
+
+        </div>
     </div>
 
     <site-footer></site-footer>
-     <script src="inicio.js"></script>
+
+    <script src="inicio.js"></script>
 </body>
 
 </html>

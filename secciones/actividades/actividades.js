@@ -1,47 +1,44 @@
-"use strict"
 let contenidoPrincipal = document.querySelector(".contenido");
 let contenedor = document.getElementById("actividades");
 
 let actividades = [];
 
 
-
 async function cargarActividades() {
+    try {
 
-    contenedor.innerHTML = "<p>Cargando actividades...</p>";
-    let respuesta = await fetch(
-        "https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades"
-    );
+        mostrarLoader();
 
-    actividades = await respuesta.json();
-    mostrarBotonAgregar();
-    mostrarActividades();
+        let respuesta = await fetch(
+            "https://6a318e037bc5e1c61265ef95.mockapi.io/asociacionCivilSuenios/actividades"
+        );
+
+        actividades = await respuesta.json();
+        mostrarBotonAgregar();
+        mostrarActividades();
+
+    } catch (error) {
+        console.log(error);
+    }finally{
+        ocultarLoader();
+    }
+
 }
 
 function crearActividadCard(act) {
-console.log(act)
     let card = document.createElement("div");
     card.classList.add("card");
 
     let contenido = document.createElement("div");
     contenido.classList.add("card-content");
-    let botonInscripcion = "";
-
-    if (act.requiereInscripcion) {
-        botonInscripcion = `<a class="btn-inscripcion" href="../formularios/inscripcion/incripcion.html?id=${act.id}">
-        Inscribirme</a>`;
-}
-console.log(botonInscripcion)
 
     contenido.innerHTML = `
         <div class="text_card">
             <h3>${act.titulo}</h3>
             <p>${act.breveDescripcion}</p>
-            <a href="../actividadDetalle/actividad.html?id=${act.id}">
-                Más Información
+            <a href="../actividadDetalle/actividad.html?id=${act.id}" class="ver-mas">
+                Más Información →
             </a>
-            ${botonInscripcion}
-            
         </div>
 
         <div class="img_card">
@@ -50,9 +47,9 @@ console.log(botonInscripcion)
     `;
 
     card.appendChild(contenido);
- 
+
     if (localStorage.getItem("isLoggedIn")) {
-       
+
         let btnContainer = document.createElement("div");
         btnContainer.classList.add("btn");
 
@@ -66,38 +63,39 @@ console.log(botonInscripcion)
         btnElim.dataset.id = act.id;
         btnElim.innerHTML = `<img src="../../public/assets/iconos/delete.png">`;
 
-        
+
 
         btnContainer.appendChild(btnEdit);
         btnContainer.appendChild(btnElim);
         card.appendChild(btnContainer);
 
-        
-       
+
+
     }
 
     return card;
 }
 
-function mostrarBotonAgregar(){
+function mostrarBotonAgregar() {
     if (localStorage.getItem("isLoggedIn")) {
-        let btnContainerAgregar= document.createElement("div");
+        let btnContainerAgregar = document.createElement("div");
         btnContainerAgregar.classList.add("botonAgregar");
 
-        let btnAgregar= document.createElement("button");
+        let btnAgregar = document.createElement("button");
         btnAgregar.setAttribute("data-tooltip", "Agregar actividad");
         btnAgregar.setAttribute("id", "btn_agregar");
-        btnAgregar.innerHTML= `<img src="../../public/assets/iconos/agregar.png"alt="agregar"></img>`;
-       
+        btnAgregar.innerHTML = `<img src="../../public/assets/iconos/agregar.png"alt="agregar"></img>`;
+
         btnContainerAgregar.appendChild(btnAgregar);
 
         contenidoPrincipal.prepend(btnContainerAgregar);
-}
+    }
 
 }
+
 function mostrarActividades() {
     contenedor.innerHTML = "";
-    
+
     actividades.forEach(act => {
         let card = crearActividadCard(act);
         contenedor.appendChild(card);
@@ -109,7 +107,7 @@ contenedor.addEventListener("click", (e) => {
 
     if (e.target.closest(".btn_edit")) {
         let id = e.target.closest(".btn_edit").dataset.id;
-        location.href =`../formularios/administracion/adminAct.html?id=${id}`;
+        location.href = `../formularios/administracion/adminAct.html?id=${id}`;
 
     }
 
@@ -120,7 +118,7 @@ contenedor.addEventListener("click", (e) => {
 
         let modal = new ModalFormulario();
         document.body.appendChild(modal);
-    
+
         modal.renderConfirmacionEliminar(id, eliminarActividad);
     }
 });
@@ -135,7 +133,7 @@ async function eliminarActividad(id) {
         );
 
         if (respuesta.ok) {
-            cargarActividades(); 
+            cargarActividades();
         } else {
             console.log("Error al eliminar");
         }
@@ -146,7 +144,7 @@ async function eliminarActividad(id) {
 }
 
 document.addEventListener("click", (e) => {
-      if (e.target.closest("#btn_agregar")) {
+    if (e.target.closest("#btn_agregar")) {
         location.href = "../formularios/administracion/adminAct.html";
     }
 

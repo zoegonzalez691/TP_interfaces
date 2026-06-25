@@ -1,0 +1,83 @@
+.detalle-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.detalle-card h1 {
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 28px;
+    color: #2F1157;
+    margin: 0 0 8px;
+}
+
+.detalle-card .subtitulo {
+    font-family: 'Amiko';
+    font-size: 15px;
+    color: #777;
+    margin: 0 0 24px;
+}
+
+.detalle-card .detalle-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(47, 17, 87, 0.15);
+    margin-bottom: 24px;
+}
+
+.detalle-card .descripcion {
+    font-family: 'Amiko';
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.detalle-card .inscribirme {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 32px;
+    border: 1px solid #2F1157;
+    border-radius: 999px;
+    background: white;
+    color: #2F1157;
+    font-family: 'Amiko';
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.detalle-card .inscribirme:hover {
+    background-color: #2F1157;
+    color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+
+    .detalle-card {
+        padding: 40px 20px;
+    }
+
+    .detalle-card h1 {
+        font-size: 38px;
+    }
+
+    .detalle-card .subtitulo {
+        font-size: 17px;
+        margin-bottom: 32px;
+    }
+
+    .detalle-card .detalle-img {
+        height: 420px;
+        margin-bottom: 32px;
+    }
+
+    .detalle-card .descripcion {
+        font-size: 17px;
+    }
+
+}

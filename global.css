@@ -18,6 +18,7 @@ body {
     overflow-x: hidden;
 
     background-color: #f7f2ee;
+    color: #4a4a4a; 
 }
 
 site-header {
@@ -156,7 +157,10 @@ site-footer {
 }
 
 #menu-container a.activo {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 999px;
 }
 
 .footer {
@@ -274,6 +278,27 @@ site-footer {
 .btn-logout:hover {
     background-color: #6b29c1;
     transition: 0.3s;
+}
+
+.ver-mas {
+    display: inline-block;
+    border: 0;
+    background-color: transparent;
+    text-align: start;
+    font-family: 'Amiko';
+    color: #3f1279;
+
+    transition: transform 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ver-mas:hover {
+    color: #250c46;
+    transform: scale(1.1);
+
 }
 
 

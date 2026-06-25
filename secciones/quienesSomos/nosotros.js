@@ -1,11 +1,4 @@
 
-/**
- * Anima la aparición de las líneas divisorias (.divisor) cuando entran en pantalla.
- * Usa IntersectionObserver para detectar cuándo cada línea se vuelve visible,
- * le agrega la clase "visible" (que dispara la transición de opacidad en el CSS),
- * y deja de observarla para que no se repita la animación al volver a scrollear.
- */
-
 let observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -15,6 +8,6 @@ let observer = new IntersectionObserver((entries) => {
     });
 });
 
-document.querySelectorAll('.divisor').forEach((linea) => {
+document.querySelectorAll('.nosotros-info-texto').forEach((linea) => {
     observer.observe(linea);
 });
