@@ -6,7 +6,7 @@ class ComponenteActividad extends ComponenteBase {
         let { requiereInscripcion, id } = this._data;
 
         return requiereInscripcion
-            ? `<a class="inscribirme" href="../formularios/inscripcion/inscripcion.html?id=${id}">Inscribirme</a>`
+            ? `<a class="inscribirme" href="../formularios/inscripcion/incripcion.html">Inscribirme</a>`
             : '';
     }
 }
