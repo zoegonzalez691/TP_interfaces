@@ -9,12 +9,12 @@ class ModalContacto extends HTMLElement {
         <div class="modal-container">
             <div class="modal">
             <h2>¡Formulario enviado correctamente!</h2>
-            <button class="btnModal">Cerrar</button>
+            <button class="btnModal" id="btn-cerrar">Cerrar</button>
             </div>
         </div>
         `;
 
-        this.querySelector('#btnCerrar').addEventListener('click', () => {
+        this.querySelector('#btn-cerrar').addEventListener('click', () => {
             this.remove();
             window.location.href = "../../../index.html"; // redirige al index
         });
