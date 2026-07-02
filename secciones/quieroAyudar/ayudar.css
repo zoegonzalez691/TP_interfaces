@@ -36,7 +36,7 @@
 
 .contPadre p {
   font-family: 'Raleway';
-  font-weight: 600;
+  font-weight: 600px;
   font-size: 26px;
   color: #ffffff;
   text-align: center;
@@ -51,30 +51,12 @@
   gap: 16px;
 }
 
-.btn {
-  padding: 14px 40px;
-  border: none;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #5e2ba2;
-  font-family: 'Amiko';
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-}
-
 .btn-ayudar a {
   text-decoration: none;
   color: inherit;
 }
 
-.btn:hover {
-  background-color: #9167c7;
-  color: #ffffff;
-  transform: translateY(-3px);
-}
+
 
 @media (min-width: 1024px) {
   .contenido {

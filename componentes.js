@@ -34,7 +34,7 @@ class SiteHeader extends HTMLElement {
 
                         ${loggedIn ? `
                             <div class="user-menu">
-                            <img src="/public/assets/iconos/user.png" alt="Usuario" class="user-icon" id="userIcon">
+                            <img src="/public/assets/iconos/userWhite.png" alt="Usuario" class="user-icon" id="userIcon">
                             <div class="dropdown hidden" id="dropdown">
                                 <button id="logout" class="btn-logout">Cerrar Sesión</button>
                             </div>

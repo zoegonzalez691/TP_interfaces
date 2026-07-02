@@ -29,11 +29,34 @@ site-footer {
     grid-area: footer;
 }
 
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .contenido {
     grid-area: contenido;
 }
 
+.btn {
+  padding: 14px 40px;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #5e2ba2;
+  font-family: 'Amiko';
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
 
+.btn:hover {
+  background-color: #9167c7;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
 /* Mobile First */
 
 .header {
@@ -237,8 +260,6 @@ site-footer {
     border-radius: 50%;
 
     cursor: pointer;
-    border: 2px solid #fff;
-    background-color: #ffffff;
     padding: 4px;
     transition: transform 0.3s ease;
 }
@@ -287,7 +308,6 @@ site-footer {
     text-align: start;
     font-family: 'Amiko';
     color: #3f1279;
-
     transition: transform 0.3s ease;
 }
 
